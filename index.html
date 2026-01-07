@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>¡Misión Español!</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div id="app">
+
+  <!-- Tela Inicial -->
+  <section id="start-screen" class="screen active">
+    <h1>¡Misión Español!</h1>
+    <p>Aprenda verbos, substantivos e adjetivos jogando!</p>
+    <button id="start-btn">Iniciar Jogo</button>
+  </section>
+
+  <!-- Tela do Jogo -->
+  <section id="game-screen" class="screen">
+    <div class="player-profile">
+      <img id="player-avatar" src=""/>
+      <span id="player-nickname"></span>
+    </div>
+
+    <div class="game-card">
+      <h2 id="materia-title"></h2>
+      <p id="question"></p>
+      <div id="options"></div>
+    </div>
+  </section>
+
+  <!-- Tela Final com Ranking -->
+  <section id="final-screen" class="screen">
+    <h2 id="final-score"></h2>
+    <h3>🏆 Ranking Global</h3>
+    <ol id="ranking-final"></ol>
+    <button onclick="location.reload()">Jogar novamente</button>
+  </section>
+
+  <!-- Modal Perfil -->
+  <div class="profile-modal" id="profile-modal">
+    <div class="modal-content">
+      <h2>Seu Nickname</h2>
+      <input id="nickname-input" class="nickname" placeholder="Ex: Estudiante123"/>
+      <h3>Escolha seu avatar</h3>
+      <div class="avatar-grid" id="avatar-grid"></div>
+      <button id="save-profile-btn">Salvar</button>
+    </div>
+  </div>
+
+  <!-- Modal Feedback -->
+  <div class="feedback-modal" id="feedback-modal">
+    <div class="feedback-content">
+      <h2 id="feedback-title"></h2>
+      <p id="feedback-msg"></p>
+      <button id="close-feedback-btn">Continuar</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
