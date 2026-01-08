@@ -16,6 +16,19 @@ body {
   padding: 20px;
 }
 
+h2 {
+  color: #42000b;
+}
+
+.nickname {
+  width: 50%;
+  border-radius: 5px;
+  height: 20px;
+  border: 2px solid #7d4238;
+  padding: 6px;
+  font-size: 16px;
+}
+
 /* ===== TELAS ===== */
 .screen {
   display: none;
@@ -36,14 +49,6 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-}
-h2 {
-  color: #42000b;
-}
-.nickname {
-  width: 50%;
-  border-radius: 5px;
-  height: 20px;
 }
 
 /* ===== PERFIL DO JOGADOR ===== */
@@ -82,64 +87,44 @@ h2 {
   margin: 12px auto;
 }
 
-/* ===== BARRA DE PROGRESSO ===== */
-.progress {
-  width: 100%;
-  background: #e6d5b8;
-  height: 14px;
-  border-radius: 8px;
-  overflow: hidden;
-  margin: 10px 0 14px;
+/* ===== CATÁLOGO DE DISCIPLINAS ===== */
+#catalog-screen h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #42000b;
+  margin-bottom: 10px;
 }
 
-.progress-bar {
-  height: 100%;
-  width: 0%;
-  transition: 0.4s;
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+  width: 90%;
+  max-width: 520px;
+  margin: 20px auto;
+  padding: 10px;
 }
 
-/* ===== BOTÕES ===== */
-#start-screen button,
-#final-screen button,
-.score-content button,
-.modal-content button,
-.feedback-content button {
-  padding: 14px;
-  width: 100%;
-  background: #7d4238;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 18px;
-  cursor: pointer;
-  font-weight: 700;
-  transition: 0.2s;
-  margin-top: 10px;
-}
-
-#start-screen button:hover,
-#final-screen button:hover {
-  transform: scale(1.03);
-  opacity: 0.9;
-}
-
-/* Opções de resposta */
-#options button {
-  width: 100%;
-  padding: 14px;
-  margin: 7px 0;
-  border: none;
-  border-radius: 10px;
-  font-size: 17px;
-  cursor: pointer;
+.catalog-btn {
   background: #f2e4d1;
-  font-weight: 600;
-  transition: 0.2s;
+  padding: 16px;
+  border-radius: 12px;
+  border: 2px solid #7d4238;
+  font-size: 18px;
+  font-weight: 700;
+  color: #42000b;
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-#options button:hover {
-  transform: scale(1.02);
+.catalog-btn:hover {
+  transform: scale(1.05);
   background: #e6d5b8;
+}
+
+.catalog-btn:active {
+  transform: scale(0.98);
 }
 
 /* ===== MODAIS ===== */
@@ -222,6 +207,50 @@ h2 {
   object-fit: cover;
 }
 
+/* ===== BOTÕES ===== */
+#start-screen button,
+#final-screen button,
+.score-content button,
+.modal-content button,
+.feedback-content button {
+  padding: 14px;
+  width: 100%;
+  background: #7d4238;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.2s;
+  margin-top: 10px;
+}
+
+#start-screen button:hover,
+#final-screen button:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+/* Opções de resposta */
+#options button {
+  width: 100%;
+  padding: 14px;
+  margin: 7px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  background: #f2e4d1;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+#options button:hover {
+  transform: scale(1.02);
+  background: #e6d5b8;
+}
+
 /* ===== RESPONSIVIDADE ===== */
 @media (min-width: 768px) {
   .player-profile {
@@ -283,5 +312,16 @@ h2 {
   #ranking-final img {
     width: 32px;
     height: 32px;
+  }
+
+  /* Responsividade do catálogo */
+  .catalog-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .catalog-btn {
+    font-size: 16px;
+    padding: 14px;
   }
 }
