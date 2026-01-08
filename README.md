@@ -22,6 +22,7 @@ Isabela:	Espanhol e pesquisa educacional
 Gustavo Coutinho:	Computação e integração digital
 Bruna:	Espanhol e design pedagógico
 Sara: Química e  metodologia
+Laís: Espanhol e metodologia
 
 
 Fundamentação Teórica:
