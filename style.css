@@ -1,4 +1,14 @@
-/* ===== BASE ===== */
+/* ===== RESET E BASE ===== */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background: #f4efe8;
@@ -6,26 +16,40 @@ body {
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  align-items: flex-start;
+  min-height: 100dvh; /* melhor para mobile */
 }
 
 #app {
   width: 100%;
   max-width: 900px;
-  padding: 20px;
+  padding: 16px;
+}
+
+/* ===== TIPOGRAFIA ===== */
+h1 {
+  font-size: 28px;
+  color: #42000b;
 }
 
 h2 {
   color: #42000b;
+  font-size: 24px;
 }
 
+p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* ===== INPUT ===== */
 .nickname {
-  width: 50%;
-  border-radius: 5px;
-  height: 20px;
+  width: 100%;
+  max-width: 320px;
+  border-radius: 8px;
+  height: 44px;
   border: 2px solid #7d4238;
-  padding: 6px;
+  padding: 8px 12px;
   font-size: 16px;
 }
 
@@ -56,16 +80,17 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
-  font-size: 26px;
+  gap: 10px;
+  font-size: 22px;
   font-weight: 700;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   color: #42000b;
+  flex-wrap: wrap;
 }
 
 .player-profile img {
-  width: 72px;
-  height: 72px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   border: 3px solid #7d4238;
   object-fit: cover;
@@ -79,135 +104,51 @@ h2 {
 .feedback-content,
 .score-content {
   background: white;
-  padding: 22px;
-  border-radius: 16px;
+  padding: 18px;
+  border-radius: 14px;
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
   width: 100%;
   max-width: 420px;
   margin: 12px auto;
 }
 
-/* ===== CATÁLOGO DE DISCIPLINAS ===== */
+/* ===== CATÁLOGO ===== */
 #catalog-screen h2 {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 800;
-  color: #42000b;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 14px;
-  width: 90%;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  width: 100%;
   max-width: 520px;
-  margin: 20px auto;
-  padding: 10px;
+  margin: 0 auto;
 }
 
 .catalog-btn {
   background: #f2e4d1;
-  padding: 16px;
-  border-radius: 12px;
+  padding: 18px;
+  border-radius: 14px;
   border: 2px solid #7d4238;
   font-size: 18px;
   font-weight: 700;
   color: #42000b;
   cursor: pointer;
-  transition: 0.2s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.catalog-btn:hover {
-  transform: scale(1.05);
-  background: #e6d5b8;
+  transition: transform 0.15s ease;
 }
 
 .catalog-btn:active {
-  transform: scale(0.98);
-}
-
-/* ===== MODAIS ===== */
-.profile-modal,
-.feedback-modal,
-.score-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.65);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  backdrop-filter: blur(3px);
-}
-
-.modal-content h3 {
-  margin: 12px 0 6px;
-  font-size: 18px;
-  color: #42000b;
-}
-
-.feedback-content h2,
-.score-content h2 {
-  font-size: 24px;
-  margin-bottom: 8px;
-  color: #7d4238;
-}
-
-.score-content {
-  text-align: center;
-}
-
-/* Grid de avatares */
-.avatar-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
-  gap: 12px;
-  margin: 16px 0;
-  justify-items: center;
-}
-
-.avatar-grid img {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  object-fit: cover;
-  cursor: pointer;
-  border: 3px solid transparent;
-  transition: 0.2s;
-}
-
-.avatar-grid img:hover {
-  transform: scale(1.08);
-}
-
-.avatar-grid img.selected {
-  border: 3px solid #7d4238;
-  transform: scale(1.1);
-}
-
-/* Ranking no final */
-#ranking-final li {
-  font-size: 18px;
-  margin: 10px 0;
-  font-weight: 600;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
-
-#ranking-final img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  object-fit: cover;
+  transform: scale(0.97);
 }
 
 /* ===== BOTÕES ===== */
+button {
+  touch-action: manipulation;
+}
+
 #start-screen button,
 #final-screen button,
 .score-content button,
@@ -218,110 +159,97 @@ h2 {
   background: #7d4238;
   color: white;
   border: none;
-  border-radius: 10px;
-  font-size: 18px;
-  cursor: pointer;
+  border-radius: 12px;
+  font-size: 16px;
   font-weight: 700;
-  transition: 0.2s;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
-#start-screen button:hover,
-#final-screen button:hover {
-  transform: scale(1.03);
-  opacity: 0.9;
-}
-
-/* Opções de resposta */
+/* ===== OPÇÕES ===== */
 #options button {
   width: 100%;
   padding: 14px;
-  margin: 7px 0;
-  border: none;
-  border-radius: 10px;
-  font-size: 17px;
-  cursor: pointer;
+  margin: 8px 0;
+  border-radius: 12px;
+  font-size: 16px;
   background: #f2e4d1;
+  color: #7d4238;
   font-weight: 600;
-  transition: 0.2s;
 }
 
-#options button:hover {
-  transform: scale(1.02);
-  background: #e6d5b8;
+/* ===== MODAIS ===== */
+.profile-modal,
+.feedback-modal,
+.score-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  overflow-y: auto;
 }
 
-/* ===== RESPONSIVIDADE ===== */
+.modal-content,
+.feedback-content,
+.score-content {
+  width: 100%;
+  max-width: 360px;
+}
+
+/* ===== AVATARES ===== */
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.avatar-grid img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.avatar-grid img.selected {
+  border: 3px solid #7d4238;
+}
+
+/* ===== RANKING ===== */
+#ranking-final li {
+  font-size: 16px;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#ranking-final img {
+  width: 32px;
+  height: 32px;
+}
+
+/* ===== TABLET E DESKTOP ===== */
 @media (min-width: 768px) {
+  body {
+    align-items: center;
+  }
+
   .player-profile {
-    font-size: 32px;
+    font-size: 30px;
   }
 
-  .stats-card,
-  .game-card,
-  .ranking-card {
-    max-width: 520px;
-  }
-
-  #options button {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  #app {
-    padding: 12px;
+  .catalog-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   h1 {
-    font-size: 22px;
-    padding: 10px;
+    font-size: 32px;
   }
 
-  .player-profile {
-    font-size: 22px;
-    gap: 8px;
-  }
-
-  .player-profile img {
-    width: 58px;
-    height: 58px;
-  }
-
-  .stats-card,
-  .game-card,
-  .ranking-card,
-  .modal-content,
-  .feedback-content,
-  .score-content {
-    padding: 18px;
-    border-radius: 14px;
-  }
-
-  #start-screen button,
-  #final-screen button {
-    font-size: 16px;
-    padding: 12px;
-  }
-
-  #options button {
-    font-size: 15px;
-    padding: 12px;
-  }
-
-  #ranking-final img {
-    width: 32px;
-    height: 32px;
-  }
-
-  /* Responsividade do catálogo */
-  .catalog-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .catalog-btn {
-    font-size: 16px;
-    padding: 14px;
+  h2 {
+    font-size: 28px;
   }
 }
