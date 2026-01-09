@@ -60,8 +60,6 @@ leitura e uso do espanhol
 
 interação gamificada (ranking, badges, níveis, feedback)
 
-Os alunos também podem construir desafios usando HTML, CSS e JS
-
 A plataforma é gratuita e hospedada no GitHub Pages
 
 ---
