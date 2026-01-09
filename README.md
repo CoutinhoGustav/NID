@@ -17,12 +17,13 @@ Objetivo:
 Criar uma plataforma web gamificada, acessível via GitHub Pages, onde os estudantes aprendem Espanhol e Química jogando, ao mesmo tempo em que desenvolvem competências básicas de computação web.
 
 Autores:
-Nome	Contribuição no projeto
-Isabela:	Espanhol e pesquisa educacional
-Gustavo Coutinho:	Computação e integração digital
-Bruna:	Espanhol e design pedagógico
-Sara: Química e  metodologia
-Laís: Espanhol e metodologia
+Nome	NID
+Isabela Calixto de Paiva Vieira:	Espanhol 
+Gustavo Coutinho:	Computação
+Bruna Rodrigues da Silva:	Espanhol
+Sara: Química
+Laís Almeida Gomes: Espanhol
+Sara da Vitória Meireles: Computação
 
 
 Fundamentação Teórica:
