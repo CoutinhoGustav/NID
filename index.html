@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Missão ENEM & PAS</title>
-  <link rel="stylesheet" href="style.css"/>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <div id="app">
 
-  <!-- Tela Inicial -->
+  <!-- BOTÃO VOLTAR GLOBAL -->
+  <div class="back-btn" id="back-btn">
+    <i class="fas fa-arrow-left"></i>
+  </div>
+
+  <!-- TELA INICIAL -->
   <section id="start-screen" class="screen active">
     <h1>🎯 Missão ENEM & PAS!</h1>
     <p>Aprenda Química, Biologia e Espanhol jogando!</p>
     <button id="start-btn">Iniciar Jogo</button>
   </section>
 
-  <!-- Catálogo de Disciplinas -->
+  <!-- CATÁLOGO -->
   <section id="catalog-screen" class="screen">
     <h2>📚 Escolha a disciplina</h2>
 
@@ -28,10 +40,11 @@
     </div>
   </section>
 
-  <!-- Tela do Jogo -->
+  <!-- JOGO -->
   <section id="game-screen" class="screen">
+
     <div class="player-profile">
-      <img id="player-avatar" src="" alt="Avatar do jogador"/>
+      <img id="player-avatar" alt="Avatar do jogador" />
       <span id="player-nickname"></span>
     </div>
 
@@ -42,33 +55,35 @@
     </div>
   </section>
 
-  <!-- Tela Final com Ranking -->
+  <!-- FINAL -->
   <section id="final-screen" class="screen">
     <h2 id="final-score"></h2>
-    <h3>🏆 Ranking Global</h3>
+
+    <h3>🏆 Ranking</h3>
     <ol id="ranking-final"></ol>
+
     <button onclick="location.reload()">Jogar novamente</button>
   </section>
 
-  <!-- Modal Perfil -->
-  <div class="profile-modal" id="profile-modal">
+  <!-- MODAL PERFIL -->
+  <div id="profile-modal" class="profile-modal">
     <div class="modal-content">
       <h2>👤 Seu Nickname</h2>
       <input
         id="nickname-input"
-        class="nickname"
         placeholder="Ex: Estudante123"
+        maxlength="15"
       />
 
       <h3>Escolha seu avatar</h3>
-      <div class="avatar-grid" id="avatar-grid"></div>
+      <div id="avatar-grid" class="avatar-grid"></div>
 
       <button id="save-profile-btn">Salvar</button>
     </div>
   </div>
 
-  <!-- Modal Feedback -->
-  <div class="feedback-modal" id="feedback-modal">
+  <!-- MODAL FEEDBACK -->
+  <div id="feedback-modal" class="feedback-modal">
     <div class="feedback-content">
       <h2 id="feedback-title"></h2>
       <p id="feedback-msg"></p>

@@ -22,14 +22,13 @@ const textosPorDisciplina = {
 };
 
 function getTextos() {
-  return textosPorDisciplina[disciplinaSelecionada] 
+  return textosPorDisciplina[disciplinaSelecionada]
     || textosPorDisciplina.default;
 }
 
 /* ===============================
    BANCO DE QUESTÕES
 ================================ */
-
 // Bancos de perguntas por disciplina
 const bancoPorDisciplina = {
   espanhol: [
@@ -199,7 +198,7 @@ const bancoPorDisciplina = {
 };
 
 /* ===============================
-   VARIÁVEIS GLOBAIS
+   VARIÁVEIS
 ================================ */
 
 let playerProfile = JSON.parse(localStorage.getItem('player-profile') || 'null');
@@ -209,99 +208,112 @@ let indice = 0;
 let scoreTotal = 0;
 
 /* ===============================
-   ELEMENTOS DO DOM
+   ELEMENTOS
 ================================ */
 
-const modalPerfil = document.getElementById('profile-modal');
-const avatarGrid = document.getElementById('avatar-grid');
+const startScreen   = document.getElementById('start-screen');
+const catalogScreen = document.getElementById('catalog-screen');
+const gameScreen    = document.getElementById('game-screen');
+const finalScreen   = document.getElementById('final-screen');
+
+const playerAvatarEl   = document.getElementById('player-avatar');
+const playerNicknameEl = document.getElementById('player-nickname');
+
+const materiaTitle = document.getElementById('materia-title');
+const questionEl   = document.getElementById('question');
+const optionsEl    = document.getElementById('options');
+
+const modalPerfil  = document.getElementById('profile-modal');
+const avatarGrid   = document.getElementById('avatar-grid');
 const nicknameInput = document.getElementById('nickname-input');
 const saveProfileBtn = document.getElementById('save-profile-btn');
 
-const startScreen = document.getElementById('start-screen');
-const catalogScreen = document.getElementById('catalog-screen');
-const gameScreen = document.getElementById('game-screen');
-const finalScreen = document.getElementById('final-screen');
-
-const playerAvatarEl = document.getElementById('player-avatar');
-const playerNicknameEl = document.getElementById('player-nickname');
-const materiaTitle = document.getElementById('materia-title');
-const questionEl = document.getElementById('question');
-const optionsEl = document.getElementById('options');
-
 const feedbackModal = document.getElementById('feedback-modal');
 const feedbackTitle = document.getElementById('feedback-title');
-const feedbackMsg = document.getElementById('feedback-msg');
+const feedbackMsg   = document.getElementById('feedback-msg');
 const closeFeedbackBtn = document.getElementById('close-feedback-btn');
 
 const finalScoreEl = document.getElementById('final-score');
 const rankingFinalEl = document.getElementById('ranking-final');
 
+const backBtn = document.getElementById('back-btn');
+
 /* ===============================
-   AVATARES
+   NAVEGAÇÃO DE TELAS
 ================================ */
 
-const listaAvatares = [
+function mostrarTela(id) {
+  document.querySelectorAll('.screen')
+    .forEach(s => s.classList.remove('active'));
+
+  document.getElementById(id).classList.add('active');
+  atualizarBotaoVoltar(id);
+}
+
+function atualizarBotaoVoltar(tela) {
+  backBtn.style.display = (tela === 'start-screen') ? 'none' : 'flex';
+}
+
+backBtn.onclick = () => {
+  if (gameScreen.classList.contains('active') ||
+      finalScreen.classList.contains('active')) {
+    mostrarTela('catalog-screen');
+  } else if (catalogScreen.classList.contains('active')) {
+    mostrarTela('start-screen');
+  }
+};
+
+/* ===============================
+   PERFIL
+================================ */
+
+const avatares = [
   'https://i.pravatar.cc/150?img=11',
   'https://i.pravatar.cc/150?img=12',
-  'https://i.pravatar.cc/150?img=13',
-  'https://i.pravatar.cc/150?img=14',
-  'https://i.pravatar.cc/150?img=15',
-  'https://i.pravatar.cc/150?img=16'
+  'https://i.pravatar.cc/150?img=13'
 ];
 
-let playerProfileTemp = { avatar: null };
+let avatarTemp = null;
 
-listaAvatares.forEach(url => {
+avatares.forEach(url => {
   const img = document.createElement('img');
   img.src = url;
   img.onclick = () => {
     document.querySelectorAll('#avatar-grid img')
       .forEach(i => i.classList.remove('selected'));
     img.classList.add('selected');
-    playerProfileTemp.avatar = url;
+    avatarTemp = url;
   };
   avatarGrid.appendChild(img);
 });
-
-/* ===============================
-   PERFIL
-================================ */
 
 function checarPerfil() {
   if (!playerProfile) {
     modalPerfil.style.display = 'flex';
   } else {
-    atualizarPerfilUI();
+    atualizarPerfil();
   }
 }
 
 saveProfileBtn.onclick = () => {
-  const nick = nicknameInput.value.trim();
-  const avatar = playerProfileTemp.avatar;
-
-  if (!nick || !avatar) {
-    alert('Digite nickname e selecione um avatar!');
-    return;
-  }
-
-  playerProfile = { nickname: nick, avatar };
+  if (!nicknameInput.value || !avatarTemp) return;
+  playerProfile = { nickname: nicknameInput.value, avatar: avatarTemp };
   localStorage.setItem('player-profile', JSON.stringify(playerProfile));
   location.reload();
 };
 
-function atualizarPerfilUI() {
+function atualizarPerfil() {
   playerAvatarEl.src = playerProfile.avatar;
   playerNicknameEl.textContent = playerProfile.nickname;
 }
 
 /* ===============================
-   NAVEGAÇÃO
+   FLUXO DO JOGO
 ================================ */
 
 document.getElementById('start-btn').onclick = () => {
   if (!playerProfile) return;
-  startScreen.classList.remove('active');
-  catalogScreen.classList.add('active');
+  mostrarTela('catalog-screen');
 };
 
 document.querySelectorAll('.catalog-btn').forEach(btn => {
@@ -309,50 +321,43 @@ document.querySelectorAll('.catalog-btn').forEach(btn => {
     disciplinaSelecionada = btn.dataset.subject;
     indice = 0;
     scoreTotal = 0;
-    catalogScreen.classList.remove('active');
-    gameScreen.classList.add('active');
+    mostrarTela('game-screen');
     carregarPergunta();
   };
 });
 
-/* ===============================
-   JOGO
-================================ */
-
 function carregarPergunta() {
   const perguntas = bancoPorDisciplina[disciplinaSelecionada];
-
   if (indice >= perguntas.length) {
-    salvarNoRanking();
-    irParaFinal();
+    salvarRanking();
+    mostrarTela('final-screen');
+    mostrarFinal();
     return;
   }
 
-  const atual = perguntas[indice];
-  materiaTitle.textContent = atual.category;
-  questionEl.textContent = atual.question;
+  const q = perguntas[indice];
+  materiaTitle.textContent = q.category;
+  questionEl.textContent = q.question;
   optionsEl.innerHTML = '';
 
-  atual.options.forEach(opt => {
+  q.options.forEach(opt => {
     const btn = document.createElement('button');
     btn.textContent = opt;
-    btn.onclick = () => responder(opt, atual.answer);
+    btn.onclick = () => responder(opt, q.answer);
     optionsEl.appendChild(btn);
   });
 }
 
 function responder(resp, correta) {
-  const textos = getTextos();
-
+  const t = getTextos();
   if (resp === correta) {
     scoreTotal += 10;
-    feedbackTitle.textContent = textos.correto;
-    feedbackMsg.textContent = textos.pontos;
+    feedbackTitle.textContent = t.correto;
+    feedbackMsg.textContent = t.pontos;
   } else {
-    feedbackTitle.textContent = textos.incorreto;
-    feedbackMsg.textContent = textos.respostaCorreta + correta;
+    feedbackTitle.textContent = t.incorreto;
+    feedbackMsg.textContent = t.respostaCorreta + correta;
   }
-
   feedbackModal.style.display = 'flex';
 }
 
@@ -363,44 +368,27 @@ closeFeedbackBtn.onclick = () => {
 };
 
 /* ===============================
-   FINAL E RANKING
+   FINAL
 ================================ */
 
-function salvarNoRanking() {
+function salvarRanking() {
   rankingGlobal.push({
     name: playerProfile.nickname,
     avatar: playerProfile.avatar,
     score: scoreTotal
   });
-
-  rankingGlobal = rankingGlobal
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 10);
-
+  rankingGlobal = rankingGlobal.sort((a,b)=>b.score-a.score).slice(0,10);
   localStorage.setItem('ranking-global', JSON.stringify(rankingGlobal));
 }
 
-function irParaFinal() {
-  gameScreen.classList.remove('active');
-  finalScreen.classList.add('active');
-  mostrarResultadoFinal();
-}
-
-function mostrarResultadoFinal() {
-  const textos = getTextos();
-
-  finalScoreEl.textContent = textos.resultadoFinal(
+function mostrarFinal() {
+  const t = getTextos();
+  finalScoreEl.textContent = t.resultadoFinal(
     playerProfile.nickname,
     scoreTotal
   );
-
   rankingFinalEl.innerHTML = rankingGlobal
-    .map(p => `
-      <li>
-        <img src="${p.avatar}"/>
-        ${p.name} — ${p.score} pts
-      </li>
-    `)
+    .map(p => `<li><img src="${p.avatar}"/> ${p.name} — ${p.score} pts</li>`)
     .join('');
 }
 
@@ -409,3 +397,4 @@ function mostrarResultadoFinal() {
 ================================ */
 
 checarPerfil();
+atualizarBotaoVoltar('start-screen');
