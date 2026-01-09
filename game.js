@@ -272,7 +272,20 @@ const avatares = [
   'https://i.pravatar.cc/150?img=12',
   'https://i.pravatar.cc/150?img=13',
   'https://i.pravatar.cc/150?img=14',
-  'https://i.pravatar.cc/150?img=15'
+  'https://i.pravatar.cc/150?img=15',
+  'https://i.pravatar.cc/150?img=11',
+  'https://i.pravatar.cc/150?img=12',
+  'https://i.pravatar.cc/150?img=13',
+  'https://i.pravatar.cc/150?img=14',
+  'https://i.pravatar.cc/150?img=15',
+  'https://i.pravatar.cc/150?img=16',
+  'https://i.pravatar.cc/150?img=17',
+  'https://i.pravatar.cc/150?img=18',
+  'https://i.pravatar.cc/150?img=47',
+  'https://i.pravatar.cc/150?img=48',
+  'https://i.pravatar.cc/150?img=49',
+  'https://i.pravatar.cc/150?img=50',
+  'https://i.pravatar.cc/150?img=51'
 ];
 
 let avatarTemp = null;
