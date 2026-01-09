@@ -1,29 +1,201 @@
 /* ===============================
-   BANCO DE QUESTÕES POR DISCIPLINA
+   TEXTOS POR DISCIPLINA (IDIOMA)
 ================================ */
 
+const textosPorDisciplina = {
+  espanhol: {
+    correto: '✅ ¡Correcto!',
+    incorreto: '❌ ¡Incorrecto!',
+    respostaCorreta: 'Respuesta correcta: ',
+    pontos: '+10 puntos 🎉',
+    resultadoFinal: (nome, pontos) =>
+      `🎯 ${nome}, ¡has obtenido ${pontos} puntos!`
+  },
+  default: {
+    correto: '✅ Correto!',
+    incorreto: '❌ Incorreto!',
+    respostaCorreta: 'Resposta correta: ',
+    pontos: '+10 pontos 🎉',
+    resultadoFinal: (nome, pontos) =>
+      `🎯 ${nome}, você fez ${pontos} pontos!`
+  }
+};
+
+function getTextos() {
+  return textosPorDisciplina[disciplinaSelecionada] 
+    || textosPorDisciplina.default;
+}
+
+/* ===============================
+   BANCO DE QUESTÕES
+================================ */
+
+// Bancos de perguntas por disciplina
 const bancoPorDisciplina = {
   espanhol: [
     { category: 'Verbos', question: '¿Cuál es un verbo?', options: ['Libro', 'Comer', 'Mesa', 'Rojo'], answer: 'Comer' },
     { category: 'Substantivos', question: '¿Cuál es un sustantivo?', options: ['Correr', 'Feliz', 'Casa', 'Vivir'], answer: 'Casa' },
     { category: 'Adjetivos', question: '¿Cuál es un adjetivo?', options: ['Escuela', 'Bonito', 'Beber', 'Perro'], answer: 'Bonito' },
+    { category: 'Verbos', question: '¿Cuál de estos es un verbo irregular?', options: ['Hablar', 'Ser', 'Comer', 'Vivir'], answer: 'Ser' },
     { category: 'Gramática', question: '¿Qué artículo es correcto para *manzana*?', options: ['El', 'La', 'Los', 'Un'], answer: 'La' },
-    { category: 'Vocabulário', question: '¿Cómo se dice *amizade*?', options: ['Amistad', 'Amor', 'Familia', 'Trabajo'], answer: 'Amistad' }
+    { category: 'Vocabulário', question: '¿Cuál es la traducción correcta de *cachorro*?', options: ['Gato', 'Perro', 'Pájaro', 'Conejo'], answer: 'Perro' },
+    { category: 'Antônimos', question: '¿Cuál es el opuesto de *alto*?', options: ['Bajo', 'Grande', 'Bonito', 'Rápido'], answer: 'Bajo' },
+    { category: 'Conjugação', question: '¿Cómo se dice *eu vou* en español?', options: ['Yo fui', 'Yo voy', 'Tú vas', 'Yo iré'], answer: 'Yo voy' },
+    { category: 'Compreensão', question: '¿Qué significa *despacio*?', options: ['Devagar', 'Rápido', 'Bonito', 'Fácil'], answer: 'Devagar' },
+    { category: 'Plural', question: 'O plural de *el chico* é:', options: ['Los chicos', 'Las chicas', 'El chicos', 'Los chico'], answer: 'Los chicos' },
+    { category: 'Gerúndio', question: 'O gerúndio de *leer* é:', options: ['Leído', 'Leyendo', 'Leo', 'Leí'], answer: 'Leyendo' },
+    { category: 'Vocabulário', question: '¿Cómo se dice *amizade*?', options: ['Amistad', 'Amor', 'Familia', 'Trabajo'], answer: 'Amistad' },
+    { category: 'Conjugação', question: 'Conjugación de *ir* para *nosotros*:', options: ['Vamos', 'Van', 'Voy', 'Vais'], answer: 'Vamos' }
   ],
 
   quimica: [
     { category:'Elementos', question:'Símbolo químico do Ouro é:', options:['Au','Ag','Fe','O'], answer:'Au' },
+    { category:'Tabela Periódica', question:'O Oxigênio pertence à família dos:', options:['Metais alcalinos','Calcogênios','Gases nobres','Halogênios'], answer:'Calcogênios' },
     { category:'pH', question:'pH 7 é considerado:', options:['Ácido','Neutro','Básico','Salino'], answer:'Neutro' },
     { category:'Ligações', question:'NaCl é um exemplo de ligação:', options:['Covalente','Iônica','Metálica','Hidrogênio'], answer:'Iônica' },
-    { category:'Química Orgânica', question:'Elemento base dos compostos orgânicos:', options:['Carbono','Oxigênio','Sódio','Cloro'], answer:'Carbono' }
+    { category:'Reações', question:'Combustão é uma reação que envolve:', options:['Absorção de oxigênio','Liberação de oxigênio','Ausência de oxigênio','Troca de sais'], answer:'Absorção de oxigênio' },
+    { category:'Estados da Matéria', question:'A água no estado sólido é chamada de:', options:['Vapor','Gelo','Líquido','Plasma'], answer:'Gelo' },
+    { category:'Misturas', question:'Ar atmosférico é uma mistura:', options:['Homogênea','Heterogênea','Simples','Composta'], answer:'Homogênea' },
+    { category:'Química Orgânica', question:'O principal elemento presente em compostos orgânicos é:', options:['Carbono','Ouro','Sódio','Cloro'], answer:'Carbono' }
   ],
-
   biologia: [
-    { category:'Bioquímica', question:'As proteínas são formadas por:', options:['Aminoácidos','Lipídios','Vitaminas','Glicose'], answer:'Aminoácidos' },
-    { category:'Citologia', question:'A respiração celular ocorre na:', options:['Mitocôndria','Núcleo','Lisossomo','Ribossomo'], answer:'Mitocôndria' },
-    { category:'Ecologia', question:'Produtores realizam:', options:['Fotossíntese','Respiração anaeróbica','Fermentação','Digestão'], answer:'Fotossíntese' },
-    { category:'Fisiologia', question:'Órgão que filtra o sangue:', options:['Pulmão','Rim','Coração','Fígado'], answer:'Rim' }
+    // Bioquímica
+    {
+      category: 'Bioquímica',
+      question: 'As proteínas são macromoléculas formadas pela união de:',
+      options: ['Nucleotídeos', 'Ácidos graxos', 'Aminoácidos', 'Monossacarídeos'],
+      answer: 'Aminoácidos'
+    },
+    {
+      category: 'Bioquímica',
+      question: 'A principal função dos carboidratos nos seres vivos é:',
+      options: ['Defesa', 'Reserva energética', 'Controle hormonal', 'Transporte de gases'],
+      answer: 'Reserva energética'
+    },
+  
+    // Citologia
+    {
+      category: 'Citologia',
+      question: 'A organela responsável pela respiração celular é:',
+      options: ['Lisossomo', 'Mitocôndria', 'Ribossomo', 'Retículo endoplasmático'],
+      answer: 'Mitocôndria'
+    },
+    {
+      category: 'Citologia',
+      question: 'Células procariontes caracterizam-se pela ausência de:',
+      options: ['Membrana plasmática', 'Ribossomos', 'Material genético', 'Carioteca'],
+      answer: 'Carioteca'
+    },
+  
+    // Metabolismo Energético
+    {
+      category: 'Metabolismo Energético',
+      question: 'Durante a fotossíntese, a energia luminosa é transformada principalmente em:',
+      options: ['Calor', 'Energia química', 'Energia mecânica', 'ATP animal'],
+      answer: 'Energia química'
+    },
+    {
+      category: 'Metabolismo Energético',
+      question: 'A fermentação ocorre em ambientes com:',
+      options: ['Alto teor de oxigênio', 'Ausência de oxigênio', 'Excesso de luz', 'Baixa temperatura'],
+      answer: 'Ausência de oxigênio'
+    },
+  
+    // Ecologia (interpretação de situação-problema)
+    {
+      category: 'Ecologia',
+      question: 'Em uma cadeia alimentar, os produtores são organismos que:',
+      options: [
+        'Se alimentam de outros seres vivos',
+        'Produzem seu próprio alimento',
+        'Decompõem matéria orgânica',
+        'São exclusivamente animais'
+      ],
+      answer: 'Produzem seu próprio alimento'
+    },
+    {
+      category: 'Ecologia',
+      question: 'O aumento excessivo de algas em rios, causado por poluição, é chamado de:',
+      options: ['Biomagnificação', 'Eutrofização', 'Sucessão ecológica', 'Mutualismo'],
+      answer: 'Eutrofização'
+    },
+  
+    // Origem da Vida
+    {
+      category: 'Origem da Vida',
+      question: 'A hipótese de Oparin-Haldane defende que a vida surgiu a partir de:',
+      options: [
+        'Criação divina imediata',
+        'Seres extraterrestres',
+        'Reações químicas na atmosfera primitiva',
+        'Organismos multicelulares'
+      ],
+      answer: 'Reações químicas na atmosfera primitiva'
+    },
+  
+    // Taxonomia
+    {
+      category: 'Taxonomia',
+      question: 'A espécie é definida como:',
+      options: [
+        'Organismos semelhantes que não se reproduzem',
+        'Indivíduos capazes de gerar descendentes férteis',
+        'Todos os seres de um mesmo reino',
+        'Organismos com o mesmo habitat'
+      ],
+      answer: 'Indivíduos capazes de gerar descendentes férteis'
+    },
+  
+    // Microbiologia e Vírus
+    {
+      category: 'Microbiologia',
+      question: 'As bactérias pertencem ao grupo dos seres:',
+      options: ['Eucariontes', 'Pluricelulares', 'Procariontes', 'Acelulares'],
+      answer: 'Procariontes'
+    },
+    {
+      category: 'Vírus',
+      question: 'Os vírus são considerados seres acelulares porque:',
+      options: [
+        'Não possuem metabolismo próprio',
+        'Não causam doenças',
+        'Vivem apenas na água',
+        'São bactérias modificadas'
+      ],
+      answer: 'Não possuem metabolismo próprio'
+    },
+  
+    // Botânica
+    {
+      category: 'Botânica',
+      question: 'As plantas realizam fotossíntese principalmente nas:',
+      options: ['Raízes', 'Flores', 'Folhas', 'Sementes'],
+      answer: 'Folhas'
+    },
+  
+    // Zoologia
+    {
+      category: 'Zoologia',
+      question: 'Os vertebrados são animais que possuem:',
+      options: ['Exoesqueleto', 'Concha calcária', 'Coluna vertebral', 'Corpo segmentado'],
+      answer: 'Coluna vertebral'
+    },
+  
+    // Fisiologia Humana e Animal (interpretação)
+    {
+      category: 'Fisiologia',
+      question: 'O sistema responsável pelo transporte de oxigênio no corpo humano é:',
+      options: ['Digestório', 'Respiratório', 'Circulatório', 'Excretor'],
+      answer: 'Circulatório'
+    },
+    {
+      category: 'Fisiologia',
+      question: 'O órgão responsável pela filtração do sangue é:',
+      options: ['Pulmão', 'Coração', 'Fígado', 'Rim'],
+      answer: 'Rim'
+    }
   ]
+  
 };
 
 /* ===============================
@@ -37,7 +209,7 @@ let indice = 0;
 let scoreTotal = 0;
 
 /* ===============================
-   ELEMENTOS
+   ELEMENTOS DO DOM
 ================================ */
 
 const modalPerfil = document.getElementById('profile-modal');
@@ -77,13 +249,14 @@ const listaAvatares = [
   'https://i.pravatar.cc/150?img=16'
 ];
 
-let playerProfileTemp = { avatar:null };
+let playerProfileTemp = { avatar: null };
 
 listaAvatares.forEach(url => {
   const img = document.createElement('img');
   img.src = url;
   img.onclick = () => {
-    document.querySelectorAll('#avatar-grid img').forEach(i => i.classList.remove('selected'));
+    document.querySelectorAll('#avatar-grid img')
+      .forEach(i => i.classList.remove('selected'));
     img.classList.add('selected');
     playerProfileTemp.avatar = url;
   };
@@ -111,7 +284,7 @@ saveProfileBtn.onclick = () => {
     return;
   }
 
-  playerProfile = { nickname:nick, avatar:avatar };
+  playerProfile = { nickname: nick, avatar };
   localStorage.setItem('player-profile', JSON.stringify(playerProfile));
   location.reload();
 };
@@ -169,14 +342,17 @@ function carregarPergunta() {
 }
 
 function responder(resp, correta) {
+  const textos = getTextos();
+
   if (resp === correta) {
     scoreTotal += 10;
-    feedbackTitle.textContent = '✅ Correto!';
-    feedbackMsg.textContent = '+10 pontos 🎉';
+    feedbackTitle.textContent = textos.correto;
+    feedbackMsg.textContent = textos.pontos;
   } else {
-    feedbackTitle.textContent = '❌ Incorreto!';
-    feedbackMsg.textContent = 'Resposta correta: ' + correta;
+    feedbackTitle.textContent = textos.incorreto;
+    feedbackMsg.textContent = textos.respostaCorreta + correta;
   }
+
   feedbackModal.style.display = 'flex';
 }
 
@@ -197,7 +373,10 @@ function salvarNoRanking() {
     score: scoreTotal
   });
 
-  rankingGlobal = rankingGlobal.sort((a,b)=>b.score-a.score).slice(0,10);
+  rankingGlobal = rankingGlobal
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 10);
+
   localStorage.setItem('ranking-global', JSON.stringify(rankingGlobal));
 }
 
@@ -208,10 +387,20 @@ function irParaFinal() {
 }
 
 function mostrarResultadoFinal() {
-  finalScoreEl.textContent = `🎯 ${playerProfile.nickname}, você fez ${scoreTotal} pontos!`;
+  const textos = getTextos();
+
+  finalScoreEl.textContent = textos.resultadoFinal(
+    playerProfile.nickname,
+    scoreTotal
+  );
 
   rankingFinalEl.innerHTML = rankingGlobal
-    .map(p => `<li><img src="${p.avatar}"/> ${p.name} — ${p.score} pts</li>`)
+    .map(p => `
+      <li>
+        <img src="${p.avatar}"/>
+        ${p.name} — ${p.score} pts
+      </li>
+    `)
     .join('');
 }
 
