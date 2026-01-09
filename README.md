@@ -76,3 +76,5 @@ A plataforma é gratuita e hospedada no GitHub Pages
 | Sara                             | Química       |
 | Laís Almeida Gomes               | Espanhol      |
 | Sara da Vitória Meireles         | Computação    |
+| Aline Gonçalves de Lima          | Biologia      |
+
