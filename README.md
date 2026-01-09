@@ -1,63 +1,96 @@
-# NID
+# 🎮 NID – Núcleo de Integração Disciplinar
 
-[Prototipo do PIBID](https://coutinhogustav.github.io/NID/)
+🌐 **Acesse a plataforma:**  
+👉 [Protótipo do Projeto PIBID – NID](https://coutinhogustav.github.io/NID/)
 
-Sobre o projeto:
-Este projeto foi desenvolvido no contexto do PIBID (Programa Institucional de Bolsas de Iniciação à Docência) e propõe uma experiência gamificada, interdisciplinar e digital para estudantes do Ensino Médio, integrando:
+---
 
-Química → conteúdos curriculares (com foco em PAS/ENEM) aplicados em desafios científicos
+## 📘 Sobre o Projeto
 
-Espanhol → aprendizagem da língua de forma contextualizada e significativa (com foco em PAS/ENEM)
+Este projeto foi desenvolvido no contexto do **PIBID – Programa Institucional de Bolsas de Iniciação à Docência** e propõe uma **experiência educacional gamificada, interdisciplinar e digital** para estudantes do **Ensino Médio**.
 
-Computação → uso de HTML, CSS e JavaScript como ferramenta de criação e mediação do aprendizado
+A proposta integra três áreas do conhecimento por meio do **NID (Núcleo de Integração Disciplinar)**, conectando conteúdos curriculares dentro de uma **narrativa digital interativa**, com foco no **PAS e ENEM**.
 
-A integração pedagógica é estruturada por meio do NID (Núcleo de Integração Disciplinar), conectando os conteúdos dentro de uma narrativa digital gamificada hospedada online.
+### 🔬 Áreas Integradas
 
-Objetivo:
-Criar uma plataforma web gamificada, acessível via GitHub Pages, onde os estudantes aprendem Espanhol e Química jogando, ao mesmo tempo em que desenvolvem competências básicas de computação web.
+- **Química**  
+  Conteúdos curriculares aplicados em desafios científicos e situações-problema.
 
-Autores:
-Nome	NID
-Isabela Calixto de Paiva Vieira:	Espanhol 
-Gustavo Coutinho:	Computação
-Bruna Rodrigues da Silva:	Espanhol
-Sara: Química
-Laís Almeida Gomes: Espanhol
-Sara da Vitória Meireles: Computação
+- **Espanhol**  
+  Aprendizagem da língua de forma contextualizada, significativa e aplicada ao cotidiano acadêmico.
 
+- **Computação**  
+  Utilização de **HTML, CSS e JavaScript** como ferramentas de criação, autoria e mediação do aprendizado.
 
-Fundamentação Teórica:
+---
 
-O projeto se baseia em princípios e pesquisadores como:
+## 🎯 Objetivo
 
-Paulo Freire → protagonismo do estudante e aprendizagem com sentido
+Criar uma **plataforma web gamificada**, acessível via **GitHub Pages**, onde os estudantes:
 
-Karl Kapp → uso de mecânicas de jogos para motivação e retenção
+- Aprendem **Química e Espanhol jogando**
+- Desenvolvem **competências básicas em computação web**
+- Atuam como protagonistas do próprio processo de aprendizagem
 
-Vygotsky → aprendizagem social e interação colaborativa
+---
 
-SBC → diretrizes para ensino de computação na educação básica
+## 🧠 Fundamentação Teórica
 
-Como o projeto funciona
+O projeto é fundamentado em referências consolidadas da educação e da tecnologia educacional:
 
-O professor cria desafios e missões interdisciplinares (língua + ciência)
+- **Paulo Freire** – Protagonismo do estudante e aprendizagem com sentido  
+- **Karl Kapp** – Gamificação como estratégia de motivação e engajamento  
+- **Lev Vygotsky** – Aprendizagem social e interação colaborativa  
+- **SBC (Sociedade Brasileira de Computação)** – Diretrizes para o ensino de computação na educação básica  
 
-Os estudantes acessam a plataforma online
+---
 
-A narrativa transforma o aluno em protagonista, resolvendo missões que envolvem:
+## 🕹️ Como o Projeto Funciona
 
-resolução de problemas químicos
+1. O professor propõe **desafios e missões interdisciplinares** (Química + Espanhol)  
+2. Os estudantes acessam a plataforma online  
+3. Uma **narrativa gamificada** transforma o aluno em protagonista  
+4. As missões envolvem:
+   - 🧪 Resolução de problemas químicos  
+   - 🇪🇸 Leitura, interpretação e uso do espanhol  
+   - 🏆 Mecânicas de jogo (níveis, badges, ranking e feedback)  
+5. Os estudantes também podem **criar desafios**, utilizando:
+   - HTML  
+   - CSS  
+   - JavaScript  
 
-leitura e uso do espanhol
+---
 
-interação gamificada (ranking, badges, níveis, feedback)
+## 👩‍🏫👨‍💻 Autores
 
-Os alunos também podem construir desafios usando HTML, CSS e JS
+| Nome                              | Área          |
+|----------------------------------|---------------|
+| Isabela Calixto de Paiva Vieira  | Espanhol      |
+| Gustavo Coutinho                 | Computação    |
+| Bruna Rodrigues da Silva         | Espanhol      |
+| Sara                             | Química       |
+| Laís Almeida Gomes               | Espanhol      |
+| Sara da Vitória Meireles         | Computação    |
 
-A plataforma é gratuita e hospedada no GitHub Pages
+---
 
+## 🚀 Acesso à Plataforma
 
+A plataforma é **gratuita** e hospedada no **GitHub Pages**.
 
-Acesso a plataforma:
+👉 Basta acessar o link abaixo para iniciar a experiência gamificada e interagir com os desafios interdisciplinares:
 
-Basta abrir o link para iniciar a experiência gamificada e interagir com os desafios interdisciplinares de Química e Espanhol.
+🔗 **https://coutinhogustav.github.io/NID/**
+
+---
+
+## 📌 Tecnologias Utilizadas
+
+- HTML5  
+- CSS3  
+- JavaScript  
+- GitHub Pages  
+
+---
+
+✨ *Projeto desenvolvido no âmbito do PIBID, com foco em inovação pedagógica, interdisciplinaridade e uso crítico da tecnologia na educação.*
