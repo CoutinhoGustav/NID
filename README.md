@@ -71,7 +71,6 @@ A plataforma é gratuita e hospedada no GitHub Pages
 | Isabela Calixto de Paiva Vieira  | Espanhol      |
 | Gustavo Coutinho                 | Computação    |
 | Bruna Rodrigues da Silva         | Espanhol      |
-| Sara                             | Química       |
 | Laís Almeida Gomes               | Espanhol      |
 | Sara da Vitória Meireles         | Computação    |
 | Aline Gonçalves de Lima          | Biologia      |
