@@ -76,3 +76,5 @@ A plataforma é gratuita e hospedada no GitHub Pages
 | Sara da Vitória Meireles         | Computação    |
 | Aline Gonçalves de Lima          | Biologia      |
 | Cainan Clemente Fernandes        | Matemática    |
+| Sara Gonçalves Marques           | Química       |
+
