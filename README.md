@@ -75,4 +75,4 @@ A plataforma é gratuita e hospedada no GitHub Pages
 | Laís Almeida Gomes               | Espanhol      |
 | Sara da Vitória Meireles         | Computação    |
 | Aline Gonçalves de Lima          | Biologia      |
-
+| Cainan Clemente Fernandes        | Matemática    |
