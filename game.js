@@ -31,6 +31,7 @@ function getTextos() {
 ================================ */
 // Bancos de perguntas por disciplina
 const bancoPorDisciplina = {
+
   espanhol: [
     { category: 'Verbos', question: '¿Cuál es un verbo?', options: ['Libro', 'Comer', 'Mesa', 'Rojo'], answer: 'Comer' },
     { category: 'Substantivos', question: '¿Cuál es un sustantivo?', options: ['Correr', 'Feliz', 'Casa', 'Vivir'], answer: 'Casa' },
@@ -193,8 +194,67 @@ const bancoPorDisciplina = {
       options: ['Pulmão', 'Coração', 'Fígado', 'Rim'],
       answer: 'Rim'
     }
+  ],
+
+  /* ==========================
+     MATEMÁTICA – NID
+  =========================== */
+
+  matematica: [
+
+    {
+      category:'Geometria Plana',
+      question:'Qual é a soma dos ângulos internos de um triângulo?',
+      options:['90°','180°','270°','360°'],
+      answer:'180°'
+    },
+    {
+      category:'Geometria Plana',
+      question:'Um quadrado de lado 4 cm possui área igual a:',
+      options:['8','12','16','20'],
+      answer:'16'
+    },
+
+    {
+      category:'Sequências',
+      question:'Qual o próximo número da sequência: 2, 4, 8, 16, ?',
+      options:['18','24','32','64'],
+      answer:'32'
+    },
+    {
+      category:'Sequências',
+      question:'A sequência 5, 10, 15, 20 é:',
+      options:['Geométrica','Aritmética','Fibonacci','Irregular'],
+      answer:'Aritmética'
+    },
+
+    {
+      category:'Funções',
+      question:'Se f(x) = 2x + 3, qual é f(2)?',
+      options:['5','6','7','8'],
+      answer:'7'
+    },
+    {
+      category:'Funções',
+      question:'O gráfico de uma função do 1º grau é uma:',
+      options:['Parábola','Reta','Circunferência','Hipérbole'],
+      answer:'Reta'
+    },
+
+    {
+      category:'Conjuntos',
+      question:'Se A={1,2,3} e B={3,4}, então A ∩ B é:',
+      options:['{1,2}','{3}','{4}','{1,2,3,4}'],
+      answer:'{3}'
+    },
+
+    {
+      category:'Raciocínio Lógico',
+      question:'Um produto custa R$ 200 e recebe desconto de 25%. Valor final?',
+      options:['R$150','R$160','R$170','R$180'],
+      answer:'R$150'
+    }
   ]
-  
 };
 
 /* ===============================
